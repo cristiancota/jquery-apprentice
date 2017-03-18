@@ -1,0 +1,29 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.book{
+    width: 17%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 1%;
+    border: 2px solid #222;
+    border-radius: 3px;
+}
+
+.book .text-wrapper{
+    padding: 20px;
+}
+
+.book h3{
+    text-align: center;
+}
+
+.book p{
+    text-align: justify;
+    margin-bottom: 0;
+}
+
+.book img{
+    max-width: 100%;
+}
