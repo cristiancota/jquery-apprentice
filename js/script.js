@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $('button:not("#generator")').click(function(e){
+    $('#submit').click(function(e){
 
         e.preventDefault();
 
@@ -40,7 +40,7 @@ $(document).ready(function(){
         return cats.response.data.images.image[index].url["#text"]
     }
 
-    $('button').click(function(){
+    $('#ajaxRequest').click(function(){
         getRandomImages();
         $('#container').empty();
         $.ajax({
@@ -63,6 +63,14 @@ $(document).ready(function(){
                 }
             })
         })
+
+        $( document ).ajaxStart(function() {
+            $( "#ajax" ).addClass('ajaxStart');
+        });
+
+        $( document ).ajaxStop(function() {
+            $( "#ajax" ).removeClass('ajaxStart');
+        });
 
         // Ignore this:
         function xmlToJson(xml) {var obj = {};if (xml.nodeType == 1) {if (xml.attributes.length > 0) {obj["@attributes"] = {};for (var j = 0; j < xml.attributes.length; j++) {var attribute = xml.attributes.item(j);obj["@attributes"][attribute.nodeName] = attribute.nodeValue;}}} else if (xml.nodeType == 3) {obj = xml.nodeValue;}if (xml.hasChildNodes()) {for(var i = 0; i < xml.childNodes.length; i++) {var item = xml.childNodes.item(i);var nodeName = item.nodeName;if (typeof(obj[nodeName]) == "undefined") {obj[nodeName] = xmlToJson(item);} else {if (typeof(obj[nodeName].push) == "undefined") {var old = obj[nodeName];obj[nodeName] = [];obj[nodeName].push(old);}obj[nodeName].push(xmlToJson(item));}}}return obj;};
